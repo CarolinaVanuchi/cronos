@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+
+	<!-- TITULO -->
+	<div class="row">
+		<div class="col-md-12">
+			<h1 class="page-header">Relatório</h1>
+		</div>
+	</div>
+	<!-- FIM TITULO -->
+
+	<p:tabView>
+		<p:tab title="Relatório de aluno por grupo">
+			<h:form id="RelAluno">
+				<div class="ui-fluid">
+					<div class="col-md-8">
+						<label>Aluno</label>
+						<p:autoComplete id="aluno" dropdown="true" scrollHeight="170"
+							value="#{relatorioProfessorMB.aluno}"
+							completeMethod="#{relatorioProfessorMB.completarMovimentacaoProfessor}"
+							forceSelection="true" converter="converterMovimentacao" var="mov"
+							itemLabel="#{mov.aluno.nome}" itemValue="#{mov}" />
+
+						<br />
+						<p:commandButton value="Imprimir certificado"
+							title="Imprimir certificado grupo" ajax="false"
+							alt="Imprimir certificado grupo"
+							action="#{relatorioProfessorMB.imprimirCertificadoGrupo()}"
+							update=":dlgInformacao">
+						</p:commandButton>
+					</div>
+				</div>
+			</h:form>
+		</p:tab>
+		<p:tab title="Relatório turma por grupo">
+			<h:form id="RelGrupoTurma">
+				<div class="ui-fluid">
+					<div class="col-md-8">
+						<label>Grupo</label>
+						<p:autoComplete id="grupoTurma" dropdown="true" scrollHeight="170"
+							value="#{relatorioProfessorMB.grupoTurma}"
+							completeMethod="#{relatorioProfessorMB.completarGrupoTurma}"
+							forceSelection="true" converter="converterGrupoTurma" var="gr"
+							itemLabel="#{gr.grupo.descricao}" itemValue="#{gr}" />
+
+						<br /> <label>Turma</label>
+						<p:autoComplete id="turma" dropdown="true" scrollHeight="170"
+							value="#{relatorioProfessorMB.turma}"
+							completeMethod="#{relatorioProfessorMB.completarTurma}"
+							forceSelection="true" converter="converterTurma" var="tur"
+							itemLabel="#{tur.descricao}" itemValue="#{tur}" />
+						<br />
+						<p:commandButton value="Imprimir certificado"
+							title="Imprimir certificado grupo" ajax="false"
+							alt="Imprimir certificado grupo"
+							action="#{relatorioProfessorMB.imprimirCertificadoGrupoTurma()}"
+							update=":dlgInformacao">
+						</p:commandButton>
+					</div>
+				</div>
+			</h:form>
+		</p:tab>
+
+		<p:tab title="Relatório de aluno detalhado por grupo">
+			<h:form id="RelAlunoGrupo">
+				<div class="ui-fluid">
+					<div class="col-md-8">
+						<label>Grupo</label>
+						<p:autoComplete id="grupoTurmaAlu" dropdown="true"
+							scrollHeight="170" value="#{relatorioProfessorMB.grupoTurma}"
+							completeMethod="#{relatorioProfessorMB.completarGrupoTurma}"
+							forceSelection="true" converter="converterGrupoTurma" var="gr"
+							itemLabel="#{gr.grupo.descricao}" itemValue="#{gr}" />
+
+						<br /> <label>Aluno</label>
+						<p:autoComplete id="alunoGr" dropdown="true" scrollHeight="170"
+							value="#{relatorioProfessorMB.aluno}"
+							completeMethod="#{relatorioProfessorMB.completarMovimentacaoProfessor}"
+							forceSelection="true" converter="converterMovimentacao" var="mov"
+							itemLabel="#{mov.aluno.nome}" itemValue="#{mov}" />
+						<br />
+						<p:commandButton value="Imprimir certificado"
+							title="Imprimir certificado grupo" ajax="false"
+							alt="Imprimir certificado grupo"
+							actionListener="#{relatorioProfessorMB.imprimirGrupoAluno()}"
+							update=":dlgInformacao">
+						</p:commandButton>
+					</div>
+				</div>
+			</h:form>
+		</p:tab>
+	</p:tabView>
+
+
+</h:body>
+</html>

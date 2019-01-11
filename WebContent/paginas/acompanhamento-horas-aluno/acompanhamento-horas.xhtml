@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+
+	<!-- TITULO -->
+	<div class="row">
+		<div class="col-md-12">
+			<h1 class="page-header">Acompanhamento das horas</h1>
+		</div>
+	</div>
+	<!-- FIM TITULO -->
+
+	<ol class="breadcrumb">
+		<div class="row container-fluid">
+			<div class="col-md-12">
+				<h:form id="frmGrafico">
+					<p:chart type="bar" model="#{graficoCertificadoAlunoMB.grafico}"
+						responsive="true" />
+				</h:form>
+			</div>
+		</div>
+	</ol>
+
+
+	<p:tabView>
+		<p:tab title="Relatório situação nos grupos">
+			<h:form id="RelTurma">
+				<div class="ui-fluid">
+					<div class="col-md-12">
+						<p:commandButton value="Imprimir certificado situação nos grupos"
+							title="Imprimir certificado situação nos grupos" ajax="false"
+							alt="Imprimir certificado situação nos grupos"
+							action="#{graficoCertificadoAlunoMB.imprimirCertificadoGrupo()}"
+							update=":dlgInformacao">
+						</p:commandButton>
+					</div>
+				</div>
+			</h:form>
+		</p:tab>
+	</p:tabView>
+
+</h:body>
+</html>

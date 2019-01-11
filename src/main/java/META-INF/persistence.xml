@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="cronosPU">
+		<class>br.com.cronos.modelo.Pessoa</class>
+		<class>br.com.cronos.modelo.Professor</class>
+		<class>br.com.cronos.modelo.Secretaria</class>
+		<class>br.com.cronos.modelo.Administrador</class>
+		<class>br.com.cronos.modelo.Aluno</class>
+		<class>br.com.cronos.modelo.Curso</class>
+		<class>br.com.cronos.modelo.ProfessorCurso</class>
+		<class>br.com.cronos.modelo.Turma</class>
+		<class>br.com.cronos.modelo.AlunoTurma</class>
+		<class>br.com.cronos.modelo.Movimentacao</class>
+		<class>br.com.cronos.modelo.Grupo</class>
+		<class>br.com.cronos.modelo.GrupoTurma</class>
+		<class>br.com.cronos.modelo.Atividade</class>
+		<class>br.com.cronos.modelo.AtividadeTurma</class>
+		<class>br.com.cronos.modelo.Certificado</class>
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/cronos" />
+			<property name="javax.persistence.jdbc.password" value="4321" />
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider" />
+			<property name="hibernate.hbm2ddl.auto" value="none" />
+		</properties>
+	</persistence-unit>
+</persistence>
